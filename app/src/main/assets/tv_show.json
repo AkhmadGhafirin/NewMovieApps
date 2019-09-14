@@ -1,0 +1,124 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "release_date": "2014",
+      "overview": "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become...The Flash.",
+      "image": "https://image.tmdb.org/t/p/w1280/fki3kBlwJzFp8QohL43g9ReV455.jpg",
+      "title": "The Flash (2014)",
+      "rating": "6.6",
+      "genres": "Drama, SCI-FI & Fantasy",
+      "duration": "44m"
+    },
+    {
+      "id": 2,
+      "release_date": "2012",
+      "overview": "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow.",
+      "image": "https://image.tmdb.org/t/p/w1280/mo0FP1GxOFZT4UDde7RFDz5APXF.jpg",
+      "title": "Arrow (2012)",
+      "rating": "5.8",
+      "genres": "Mystery, Crime, Drama, Action & Adventure",
+      "duration": "42m"
+    },
+    {
+      "id": 3,
+      "release_date": "2015",
+      "overview": "What did the world look like as it was transforming into the horrifying apocalypse depicted in \"The Walking Dead\"? This spin-off set in Los Angeles, following new characters as they face the beginning of the end of the world, will answer that question.",
+      "image": "https://image.tmdb.org/t/p/w1280/lZMb3R3e5vqukPbeDMeyYGf2ZNG.jpg",
+      "title": "Fear the Walking Dead (2015)",
+      "rating": "6.3",
+      "genres": "Drama, Horror",
+      "duration": "43m, 60m"
+    },
+    {
+      "id": 4,
+      "release_date": "1989",
+      "overview": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+      "image": "https://image.tmdb.org/t/p/w1280/yTZQkSsxUFJZJe67IenRM0AEklc.jpg",
+      "title": "The Simpsons (1989)",
+      "rating": "7.1",
+      "genres": "Animation, Comedy",
+      "duration": "22m"
+    },
+    {
+      "id": 5,
+      "release_date": "2013",
+      "overview": "Agent Phil Coulson of S.H.I.E.L.D. (Strategic Homeland Intervention, Enforcement and Logistics Division) puts together a team of agents to investigate the new, the strange and the unknown around the globe, protecting the ordinary from the extraordinary.",
+      "image": "https://image.tmdb.org/t/p/w1280/cXiETfFK1BTLest5fhTLfDLRdL6.jpg",
+      "title": "Marvel's Agents of S.H.I.E.L.D. (2013)",
+      "rating": "6.8",
+      "genres": "SCI-FI & Fantasy, Drama, Action & Adventure",
+      "duration": "43m"
+    },
+    {
+      "id": 6,
+      "release_date": "2018",
+      "overview": "A team of young superheroes led by Nightwing (formerly Batman's first Robin) form to combat evil and other perils.",
+      "image": "https://image.tmdb.org/t/p/w1280/eeHI5iBSCOxj4HGSOmFM6azBmwb.jpg",
+      "title": "Titans (2018)",
+      "rating": "7.4",
+      "genres": "SCI-FI & Fantasy, Drama, Action & Adventure",
+      "duration": "43m"
+    },
+    {
+      "id": 7,
+      "release_date": "2011",
+      "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+      "image": "https://image.tmdb.org/t/p/w1280/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+      "title": "Game of Thrones (2011)",
+      "rating": "8.1",
+      "genres": "SCI-FI & Fantasy, Drama, Action & Adventure",
+      "duration": "60m"
+    },
+    {
+      "id": 8,
+      "release_date": "2016",
+      "overview": "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
+      "image": "https://image.tmdb.org/t/p/w1280/1sBx2Ew4WFsa1YY32vlHt079O03.jpg",
+      "title": "Lucifer (2016)",
+      "rating": "7.4",
+      "genres": "SCI-FI & Fantasy, Crime",
+      "duration": "45m"
+    },
+    {
+      "id": 9,
+      "release_date": "2019",
+      "overview": "Return to the world of Thra, where three Gelfling discover the horrifying secret behind the Skeksis' power and set out to ignite the fires of rebellion and save their world.",
+      "image": "https://image.tmdb.org/t/p/w1280/rG6bC26xi10i8Mx0ZTyJ7nBkeWv.jpg",
+      "title": "The Dark Crystal: Age of Resistance (2019)",
+      "rating": "7.7",
+      "genres": "SCI-FI & Fantasy, Kids, Drama",
+      "duration": "60m"
+    },
+    {
+      "id": 10,
+      "release_date": "2015",
+      "overview": "Twenty-four-year-old Kara Zor-El, who was taken in by the Danvers family when she was 13 after being sent away from Krypton, must learn to embrace her powers after previously hiding them. The Danvers teach her to be careful with her powers, until she has to reveal them during an unexpected disaster, setting her on her journey of heroism.",
+      "image": "https://image.tmdb.org/t/p/w1280/vqBsgL9nd2v04ZvCqPzwtckDdFD.jpg",
+      "title": "Supergirl (2015)",
+      "rating": "5.8",
+      "genres": "Action, Drama, Science Fiction, Adventure",
+      "duration": "42m"
+    },
+    {
+      "id": 11,
+      "release_date": "2016",
+      "overview": "When heroes alone are not enough ... the world needs legends. Having seen the future, one he will desperately try to prevent from happening, time-traveling rogue Rip Hunter is tasked with assembling a disparate group of both heroes and villains to confront an unstoppable threat — one in which not only is the planet at stake, but all of time itself. Can this ragtag team defeat an immortal threat unlike anything they have ever known?",
+      "image": "https://image.tmdb.org/t/p/w1280/icv3e1l8od9VjQD4NlvpBySyY09.jpg",
+      "title": "DC's Legends of Tomorrow (2016)",
+      "rating": "6.1",
+      "genres": "Action & Adventure, SCI-FI & Fantasy, Drama",
+      "duration": "42m"
+    },
+    {
+      "id": 12,
+      "release_date": "2016",
+      "overview": "A preacher sets out on a mission to make the almighty himself confess his sin of abandoning the world. With his best friend Cassidy, an alcoholic Irish vampire, his love Tulip, a red blooded gun towing Texan, and the power of genesis, an unholy child born from an angel and a devil, Jesse gives up everything to set the world straight with its creator.",
+      "image": "https://image.tmdb.org/t/p/w1280/ey1WQajA25E5sFGHSApcqSWUSEc.jpg",
+      "title": "Preacher (2016)",
+      "rating": "7.3",
+      "genres": "Action & Adventure, SCI-FI & Fantasy, Drama, Comedy",
+      "duration": "60m, 45m"
+    }
+  ]
+}

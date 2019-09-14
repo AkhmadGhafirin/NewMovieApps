@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Submission 2</string>
+    <string name="language">in-ID</string>
+    <string name="tv_show_label">Acara Tv</string>
+    <string name="movies_label">Film</string>
+    <string name="movie_label">Movie</string>
+    <string name="title_label">JUDUL :</string>
+    <string name="overview_label">GAMBARAN UMUM :</string>
+    <string name="genres_label">ALIRAN :</string>
+    <string name="release_label">TERBIT :</string>
+    <string name="rating_label">NILAI :</string>
+    <string name="duration_label">WAKTU PENAYANGAN :</string>
+</resources>
