@@ -11,4 +11,5 @@
     <string name="release_label">TERBIT :</string>
     <string name="rating_label">NILAI :</string>
     <string name="duration_label">WAKTU PENAYANGAN :</string>
+    <string name="change_language_label">Ubah Bahasa</string>
 </resources>

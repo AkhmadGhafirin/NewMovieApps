@@ -20,147 +20,158 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_title_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/space_10"
             android:paddingEnd="@dimen/space_10"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_movie_detail">
+            android:text="@string/title_label"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_movie_detail" />
 
-            <TextView
-                android:id="@+id/tv_title_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_label"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_15"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:text="sihdadashd"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_label" />
 
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="sihdadashd"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_18"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title_label" />
+        <TextView
+            android:id="@+id/tv_genres_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:text="@string/genres_label"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
-            <TextView
-                android:id="@+id/tv_genres_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_20"
-                android:text="@string/genres_label"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_15"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        <TextView
+            android:id="@+id/tv_genres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:text="jshajkdjka"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_genres_label" />
 
-            <TextView
-                android:id="@+id/tv_genres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="jshajkdjka"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_18"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_genres_label" />
+        <TextView
+            android:id="@+id/tv_release_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:text="@string/release_label"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_genres" />
 
-            <TextView
-                android:id="@+id/tv_release_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_20"
-                android:text="@string/release_label"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_15"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_genres" />
+        <TextView
+            android:id="@+id/tv_release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:text="ksndjlabdjba"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_release_label" />
 
-            <TextView
-                android:id="@+id/tv_release"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ksndjlabdjba"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_18"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_release_label" />
+        <TextView
+            android:id="@+id/tv_rating_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:text="@string/rating_label"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_release" />
 
-            <TextView
-                android:id="@+id/tv_rating_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_20"
-                android:text="@string/rating_label"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_15"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_release" />
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_rating_label" />
 
-            <TextView
-                android:id="@+id/tv_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_18"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_rating_label" />
+        <TextView
+            android:id="@+id/tv_duration_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:text="@string/duration_label"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_rating" />
 
-            <TextView
-                android:id="@+id/tv_duration_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_20"
-                android:text="@string/duration_label"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_15"
-                android:textStyle="bold"
-                android:visibility="gone"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_rating" />
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_duration_label" />
 
-            <TextView
-                android:id="@+id/tv_duration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_18"
-                android:visibility="gone"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_duration_label" />
+        <TextView
+            android:id="@+id/tv_overview_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:text="@string/overview_label"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_rating" />
 
-            <TextView
-                android:id="@+id/tv_overview_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_20"
-                android:text="@string/overview_label"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_15"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_rating" />
-
-            <TextView
-                android:id="@+id/tv_overview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/space_20"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_18"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_overview_label" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_20"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_overview_label" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -10,4 +10,5 @@
     <string name="release_label">RELEASE :</string>
     <string name="rating_label">RATING :</string>
     <string name="duration_label">DURATION :</string>
+    <string name="change_language_label">Change Language</string>
 </resources>
