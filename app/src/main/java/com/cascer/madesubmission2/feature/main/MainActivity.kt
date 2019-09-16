@@ -8,6 +8,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.cascer.madesubmission2.R
+import com.cascer.madesubmission2.feature.main.movie.MovieFragment
+import com.cascer.madesubmission2.feature.main.tv_show.TvShowFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 

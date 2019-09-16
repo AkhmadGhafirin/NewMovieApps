@@ -1,4 +1,4 @@
-package com.cascer.madesubmission2.feature.main
+package com.cascer.madesubmission2.feature.main.movie
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.cascer.madesubmission2.R
 import com.cascer.madesubmission2.data.response.movie.MoviesItem
 import com.cascer.madesubmission2.feature.detail.DetailActivity
+import com.cascer.madesubmission2.feature.main.MainActivity
+import com.cascer.madesubmission2.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_movie.*
+import kotlinx.android.synthetic.main.movie_shimmer_container.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MovieFragment : Fragment() {
@@ -44,41 +47,22 @@ class MovieFragment : Fragment() {
     private fun toDetail(data: MoviesItem) {
         val intent = Intent((context as MainActivity), DetailActivity::class.java)
         intent.putExtra("from", resources.getString(R.string.movie_label))
-        intent.putExtra("data", data)
+        intent.putExtra("id", data.id ?: 0)
         startActivity(intent)
     }
 
     private fun requestAndInsert() {
-        viewModel.getNowPlayingMovie(resources.getString(R.string.language))
+        viewModel.movieListLiveData
             .observe(this, Observer {
                 it?.let {
                     adapter.insertList(it)
+                    if (shimmer_container != null) {
+                        shimmer_container.stopShimmer()
+                        shimmer_container.visibility = View.GONE
+                    }
                 }
             })
-    }
 
-//    private fun getMovieList(): List<DataItem> {
-//        val result = arrayListOf<DataItem>()
-//        try {
-//            val inputStream = (context as MainActivity).assets.open("movies.json")
-//            val size = inputStream.available()
-//            val buffer = ByteArray(size)
-//
-//            inputStream.read(buffer)
-//            inputStream.close()
-//
-//            var body: JSONObject? = null
-//            body = JSONObject(String(buffer, StandardCharsets.UTF_8))
-//            val response = Gson().fromJson(body.toString(), DataResponse::class.java)
-//            if (response.data != null) {
-//                result.addAll(response.data)
-//            }
-//        } catch (e: IOException) {
-//            Log.d("IOException", "Error IOE= ${e.message}")
-//        } catch (e: JSONException) {
-//            Log.d("JSONException", "Error JSON= ${e.message}")
-//        }
-//
-//        return result
-//    }
+        viewModel.requestNowPlayingMovie(resources.getString(R.string.language))
+    }
 }

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shimmer_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_shimmer_basic">
+
+        <ImageView
+            android:id="@+id/iv_movie_detail"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="@dimen/space_10"
+            android:adjustViewBounds="true"
+            android:background="@drawable/background_shimmer_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title_label"
+            android:layout_width="@dimen/space_100"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_10"
+            android:layout_marginEnd="@dimen/space_10"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_movie_detail" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="@dimen/space_200"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginEnd="@dimen/space_10"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_label" />
+
+        <TextView
+            android:id="@+id/tv_genres_label"
+            android:layout_width="@dimen/space_100"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_20"
+            android:layout_marginEnd="@dimen/space_10"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_genres"
+            android:layout_width="@dimen/space_200"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginEnd="@dimen/space_10"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_genres_label" />
+
+        <TextView
+            android:id="@+id/tv_release_label"
+            android:layout_width="@dimen/space_100"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_20"
+            android:layout_marginEnd="@dimen/space_10"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_genres" />
+
+        <TextView
+            android:id="@+id/tv_release"
+            android:layout_width="@dimen/space_200"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginEnd="@dimen/space_10"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_release_label" />
+
+        <TextView
+            android:id="@+id/tv_rating_label"
+            android:layout_width="@dimen/space_100"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_20"
+            android:layout_marginEnd="@dimen/space_10"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_release" />
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="@dimen/space_200"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginEnd="@dimen/space_10"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_rating_label" />
+
+        <TextView
+            android:id="@+id/tv_duration_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:text="@string/duration_label"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_rating" />
+
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/space_10"
+            android:paddingEnd="@dimen/space_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_duration_label" />
+
+        <TextView
+            android:id="@+id/tv_overview_label"
+            android:layout_width="@dimen/space_100"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_20"
+            android:layout_marginEnd="@dimen/space_10"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_15"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_rating" />
+
+        <TextView
+            android:id="@+id/tv_overview"
+            android:layout_width="@dimen/space_200"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginEnd="@dimen/space_10"
+            android:layout_marginBottom="@dimen/space_20"
+            android:background="@drawable/background_shimmer_medium"
+            android:textColor="@color/gray_shimmer_medium"
+            android:textSize="@dimen/text_18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_overview_label" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.facebook.shimmer.ShimmerFrameLayout>

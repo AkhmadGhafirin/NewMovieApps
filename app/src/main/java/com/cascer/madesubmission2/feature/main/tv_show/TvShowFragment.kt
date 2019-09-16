@@ -1,4 +1,4 @@
-package com.cascer.madesubmission2.feature.main
+package com.cascer.madesubmission2.feature.main.tv_show
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.cascer.madesubmission2.R
 import com.cascer.madesubmission2.data.response.tv_show.TvShowItem
 import com.cascer.madesubmission2.feature.detail.DetailActivity
+import com.cascer.madesubmission2.feature.main.MainActivity
+import com.cascer.madesubmission2.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_tv_show.*
+import kotlinx.android.synthetic.main.movie_shimmer_container.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class TvShowFragment : Fragment() {
@@ -44,41 +47,22 @@ class TvShowFragment : Fragment() {
     private fun toDetail(data: TvShowItem) {
         val intent = Intent((context as MainActivity), DetailActivity::class.java)
         intent.putExtra("from", resources.getString(R.string.tv_show_label))
-        intent.putExtra("data", data)
+        intent.putExtra("id", data.id ?: 0)
         startActivity(intent)
     }
 
     private fun requestAndInsert() {
-        viewModel.getNowPlayingTvShow(resources.getString(R.string.language))
+        viewModel.tvShowListLiveData
             .observe(this, Observer {
                 it?.let {
                     adapter.insertList(it)
+                    if (shimmer_container != null) {
+                        shimmer_container.stopShimmer()
+                        shimmer_container.visibility = View.GONE
+                    }
                 }
             })
-    }
 
-//    private fun getTvShowList(): List<DataItem> {
-//        val result = arrayListOf<DataItem>()
-//        try {
-//            val inputStream = (context as MainActivity).assets.open("tv_show.json")
-//            val size = inputStream.available()
-//            val buffer = ByteArray(size)
-//
-//            inputStream.read(buffer)
-//            inputStream.close()
-//
-//            var body: JSONObject? = null
-//            body = JSONObject(String(buffer, StandardCharsets.UTF_8))
-//            val response = Gson().fromJson(body.toString(), DataResponse::class.java)
-//            if (response.data != null) {
-//                result.addAll(response.data)
-//            }
-//        } catch (e: IOException) {
-//            Log.d("IOException", "Error IOE= ${e.message}")
-//        } catch (e: JSONException) {
-//            Log.d("JSONException", "Error JSON= ${e.message}")
-//        }
-//
-//        return result
-//    }
+        viewModel.requestNowPlayingTvShow(resources.getString(R.string.language))
+    }
 }
