@@ -1,7 +1,10 @@
 package com.cascer.madesubmission2.data.response.tv_show.detail
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class LastEpisodeToAir(
 
     @field:SerializedName("production_code")
@@ -36,4 +39,4 @@ data class LastEpisodeToAir(
 
     @field:SerializedName("vote_count")
     val voteCount: Int? = null
-)
+): Parcelable

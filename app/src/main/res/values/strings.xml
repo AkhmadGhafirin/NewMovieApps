@@ -11,4 +11,8 @@
     <string name="rating_label">RATING :</string>
     <string name="duration_label">DURATION :</string>
     <string name="change_language_label">Change Language</string>
+    <string name="favorite_label">Favorite</string>
+    <string name="add_favorite_message">Successfully added to favorites</string>
+    <string name="remove_favorite_message">Successfully removed from favorites</string>
+    <string name="empty_favorite_message">Your favorite is empty</string>
 </resources>

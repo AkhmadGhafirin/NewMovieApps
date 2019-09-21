@@ -1,7 +1,10 @@
 package com.cascer.madesubmission2.data.response.tv_show.detail
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class TvShowDetailResponse(
 
     @field:SerializedName("original_language")
@@ -87,4 +90,4 @@ data class TvShowDetailResponse(
 
     @field:SerializedName("status")
     val status: String? = null
-)
+): Parcelable

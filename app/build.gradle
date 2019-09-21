@@ -30,6 +30,8 @@ android {
 }
 
 dependencies {
+    def room_version = "2.2.0-rc01"
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -45,6 +47,14 @@ dependencies {
     implementation("com.github.bumptech.glide:okhttp3-integration:4.9.0") {
         exclude group: 'glide-parent'
     }
+
+    //MD Toast
+    implementation 'com.valdesekamdem.library:md-toast:0.9.0'
+
+    //room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
 
     //shimmer
     implementation 'com.facebook.shimmer:shimmer:0.4.0'

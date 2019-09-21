@@ -1,7 +1,10 @@
 package com.cascer.madesubmission2.data.response.tv_show.detail
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class SeasonsItem(
 
 	@field:SerializedName("air_date")
@@ -24,4 +27,4 @@ data class SeasonsItem(
 
 	@field:SerializedName("poster_path")
 	val posterPath: String? = null
-)
+): Parcelable

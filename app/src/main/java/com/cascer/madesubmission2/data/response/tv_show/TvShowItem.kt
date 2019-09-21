@@ -1,9 +1,12 @@
 package com.cascer.madesubmission2.data.response.tv_show
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+@Entity(tableName = "tv_show")
 @Parcelize
 data class TvShowItem(
     @SerializedName("first_air_date")
@@ -25,7 +28,9 @@ data class TvShowItem(
     @SerializedName("vote_average")
     val voteAverage: Double? = null,
     val name: String? = null,
+    @PrimaryKey
     val id: Int? = null,
+    val isFavorite: Boolean? = false,
     @SerializedName("vote_count")
     val voteCount: Int? = null
 ) : Parcelable

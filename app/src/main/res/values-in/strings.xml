@@ -12,4 +12,8 @@
     <string name="rating_label">NILAI :</string>
     <string name="duration_label">WAKTU PENAYANGAN :</string>
     <string name="change_language_label">Ubah Bahasa</string>
+    <string name="favorite_label">Favorit</string>
+    <string name="add_favorite_message">Berhasil ditambahkan ke favorit</string>
+    <string name="remove_favorite_message">Berhasil dihapus dari favorit</string>
+    <string name="empty_favorite_message">Favorit Anda kosong</string>
 </resources>

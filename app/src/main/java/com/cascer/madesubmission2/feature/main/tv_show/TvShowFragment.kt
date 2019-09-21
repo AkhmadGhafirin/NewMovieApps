@@ -12,16 +12,26 @@ import com.cascer.madesubmission2.R
 import com.cascer.madesubmission2.data.response.tv_show.TvShowItem
 import com.cascer.madesubmission2.feature.detail.DetailActivity
 import com.cascer.madesubmission2.feature.main.MainActivity
+import com.cascer.madesubmission2.feature.main.TvShowAdapter
+import com.cascer.madesubmission2.utils.KEY_TV_SHOW_LIST_VALUE
 import com.cascer.madesubmission2.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 import kotlinx.android.synthetic.main.movie_shimmer_container.*
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class TvShowFragment : Fragment() {
 
-    private val adapter by lazy { TvShowAdapter { toDetail(it) } }
+    private val adapter by lazy {
+        TvShowAdapter {
+            toDetail(
+                it
+            )
+        }
+    }
+    private var tvShowList: ArrayList<TvShowItem> = arrayListOf()
 
-    private val viewModel: MainViewModel by viewModel()
+    private val viewModel: MainViewModel by inject { parametersOf(resources.getString(R.string.language)) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -32,7 +42,25 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRV()
-        requestAndInsert()
+
+        if (savedInstanceState == null) {
+            requestAndInsert()
+        } else {
+            tvShowList =
+                savedInstanceState.getParcelableArrayList<TvShowItem>(KEY_TV_SHOW_LIST_VALUE)
+                    ?: arrayListOf()
+            adapter.insertList(tvShowList)
+            if (shimmer_container != null) {
+                shimmer_container.stopShimmer()
+                shimmer_container.visibility = View.GONE
+            }
+        }
+    }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putParcelableArrayList(KEY_TV_SHOW_LIST_VALUE, tvShowList)
+        super.onSaveInstanceState(outState)
     }
 
     private fun setupRV() {
@@ -55,6 +83,7 @@ class TvShowFragment : Fragment() {
         viewModel.tvShowListLiveData
             .observe(this, Observer {
                 it?.let {
+                    tvShowList.addAll(it)
                     adapter.insertList(it)
                     if (shimmer_container != null) {
                         shimmer_container.stopShimmer()
@@ -62,7 +91,5 @@ class TvShowFragment : Fragment() {
                     }
                 }
             })
-
-        viewModel.requestNowPlayingTvShow(resources.getString(R.string.language))
     }
 }

@@ -9,4 +9,6 @@
     <color name="black">#000000</color>
     <color name="gray_shimmer_basic">#dddddd</color>
     <color name="gray_shimmer_medium">#B3B3B3</color>
+    <color name="green">#27AE60</color>
+
 </resources>

@@ -1,7 +1,10 @@
 package com.cascer.madesubmission2.data.response.movie.detail
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class BelongsToCollection(
 
 	@field:SerializedName("backdrop_path")
@@ -15,4 +18,4 @@ data class BelongsToCollection(
 
 	@field:SerializedName("poster_path")
 	val posterPath: String? = null
-)
+): Parcelable

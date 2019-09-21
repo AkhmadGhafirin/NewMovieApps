@@ -1,7 +1,10 @@
 package com.cascer.madesubmission2.data.response.movie.detail
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ProductionCountriesItem(
 
 	@field:SerializedName("iso_3166_1")
@@ -9,4 +12,4 @@ data class ProductionCountriesItem(
 
 	@field:SerializedName("name")
 	val name: String? = null
-)
+): Parcelable

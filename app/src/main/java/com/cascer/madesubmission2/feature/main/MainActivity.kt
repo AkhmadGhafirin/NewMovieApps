@@ -8,22 +8,34 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.cascer.madesubmission2.R
+import com.cascer.madesubmission2.feature.main.favorite.FavoriteFragment
 import com.cascer.madesubmission2.feature.main.movie.MovieFragment
 import com.cascer.madesubmission2.feature.main.tv_show.TvShowFragment
+import com.cascer.madesubmission2.utils.KEY_FRAGMENT_SELECTED
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
+
+    private var fragmentSelected: Fragment = MovieFragment()
 
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.movie -> {
-                    replaceFragment(MovieFragment())
+                    fragmentSelected = MovieFragment()
+                    replaceFragment(fragmentSelected)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.tv_show -> {
-                    replaceFragment(TvShowFragment())
+                    fragmentSelected = TvShowFragment()
+                    replaceFragment(fragmentSelected)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.favorite -> {
+                    fragmentSelected = FavoriteFragment()
+                    replaceFragment(fragmentSelected)
                     return@OnNavigationItemSelectedListener true
                 }
             }
@@ -34,8 +46,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        if (savedInstanceState == null) {
+            replaceFragment(fragmentSelected)
+        } else {
+            fragmentSelected =
+                supportFragmentManager.getFragment(savedInstanceState, KEY_FRAGMENT_SELECTED)
+                    ?: MovieFragment()
+            replaceFragment(fragmentSelected)
+        }
+
         bottom_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        replaceFragment(MovieFragment())
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        supportFragmentManager.putFragment(outState, KEY_FRAGMENT_SELECTED, fragmentSelected)
+        super.onSaveInstanceState(outState)
     }
 
     private fun replaceFragment(fragment: Fragment) {
