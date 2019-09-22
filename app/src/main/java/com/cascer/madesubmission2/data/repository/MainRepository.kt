@@ -95,6 +95,7 @@ class MainRepository(
             .subscribe(object : ApiObserver<TvShowResponse>(compositeDisposable) {
                 override fun onSuccess(data: TvShowResponse) {
                     dao.insertTvShowList(data.results ?: emptyList())
+//                    Log.d("SUCCESS_GET_TV_SHOW", "Success")
                     Log.d("SUCCESS_GET_TV_SHOW", "Success")
                 }
 
