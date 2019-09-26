@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Submission 2</string>
+    <string name="app_name">Final Submission</string>
     <string name="language">in-ID</string>
     <string name="tv_show_label">Acara Tv</string>
     <string name="movies_label">Film</string>
@@ -16,4 +16,15 @@
     <string name="add_favorite_message">Berhasil ditambahkan ke favorit</string>
     <string name="remove_favorite_message">Berhasil dihapus dari favorit</string>
     <string name="empty_favorite_message">Favorit Anda kosong</string>
+    <string name="search_here_message">Cari disini…</string>
+    <string name="search_movie_first_message">Temukan Filmnya di sini…</string>
+    <string name="search_tv_show_message">Temukan Acara Tv di sini…</string>
+    <string name="daily_reminder_label">Pengingat Harian</string>
+    <string name="release_reminder_label">Pengingat Rilis Film Baru</string>
+    <string name="release_reminder_desc">Pengingat menunjukkan film yang dirilis\nhari ini</string>
+    <string name="daily_reminder_desc">Pengingat untuk kembali ke aplikasi</string>
+    <string name="change_language_desc">Ubah pengaturan bahasa ke Bahasa atau Bahasa Inggris</string>
+    <string name="setting_label">Pengaturan</string>
+    <string name="release_today_message">Film ini akan dirilis hari ini</string>
+    <string name="movie_banner_label">Spanduk Film</string>
 </resources>

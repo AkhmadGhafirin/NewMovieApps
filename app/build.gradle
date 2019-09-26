@@ -51,6 +51,9 @@ dependencies {
     //MD Toast
     implementation 'com.valdesekamdem.library:md-toast:0.9.0'
 
+    //search view
+    implementation "com.paulrybitskyi.persistentsearchview:persistentsearchview:1.0.0"
+
     //room
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"

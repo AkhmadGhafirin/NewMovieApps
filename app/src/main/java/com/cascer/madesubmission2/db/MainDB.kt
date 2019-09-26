@@ -5,10 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.cascer.madesubmission2.data.response.movie.MoviesItem
-import com.cascer.madesubmission2.data.response.tv_show.TvShowItem
+import com.cascer.madesubmission2.data.response.favorite.FavoriteMovie
+import com.cascer.madesubmission2.data.response.favorite.FavoriteState
+import com.cascer.madesubmission2.data.response.favorite.FavoriteTvShow
 
-@Database(entities = [MoviesItem::class, TvShowItem::class], version = 1)
+@Database(
+    entities = [FavoriteMovie::class, FavoriteTvShow::class, FavoriteState::class],
+    version = 1
+)
 @TypeConverters(Converters::class)
 abstract class MainDB : RoomDatabase() {
 

@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.cascer.madesubmission2.R
-import com.cascer.madesubmission2.data.response.tv_show.TvShowItem
+import com.cascer.madesubmission2.data.response.favorite.FavoriteTvShow
 import com.cascer.madesubmission2.feature.detail.DetailActivity
 import com.cascer.madesubmission2.feature.main.MainActivity
-import com.cascer.madesubmission2.feature.main.TvShowAdapter
+import com.cascer.madesubmission2.feature.main.tv_show.TvShowAdapter
 import com.cascer.madesubmission2.utils.KEY_FAVORITE_TV_SHOW_LIST_VALUE
 import com.cascer.madesubmission2.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_favorite_tv_show.*
@@ -22,8 +22,14 @@ import org.koin.core.parameter.parametersOf
 
 class FavoriteTvShowFragment : Fragment() {
 
-    private val adapter by lazy { TvShowAdapter { toDetail(it) } }
-    private var favoriteTvShowList: ArrayList<TvShowItem> = arrayListOf()
+    private val adapter by lazy {
+        FavoriteTvShowAdapter {
+            toDetail(
+                it
+            )
+        }
+    }
+    private var favoriteTvShowList: ArrayList<FavoriteTvShow> = arrayListOf()
 
     private val viewModel: MainViewModel by inject { parametersOf(resources.getString(R.string.language)) }
 
@@ -41,7 +47,7 @@ class FavoriteTvShowFragment : Fragment() {
             setupViewModel()
         } else {
             favoriteTvShowList =
-                savedInstanceState.getParcelableArrayList<TvShowItem>(
+                savedInstanceState.getParcelableArrayList<FavoriteTvShow>(
                     KEY_FAVORITE_TV_SHOW_LIST_VALUE
                 ) ?: arrayListOf()
             adapter.insertList(favoriteTvShowList)
@@ -66,10 +72,11 @@ class FavoriteTvShowFragment : Fragment() {
         rv_favorite_tv_show.adapter = adapter
     }
 
-    private fun toDetail(data: TvShowItem) {
+    private fun toDetail(data: FavoriteTvShow) {
         val intent = Intent((context as MainActivity), DetailActivity::class.java)
         intent.putExtra("from", resources.getString(R.string.movie_label))
-        intent.putExtra("id", data.id ?: 0)
+        intent.putExtra("type", "favorite")
+        intent.putExtra("data", data)
         startActivity(intent)
     }
 

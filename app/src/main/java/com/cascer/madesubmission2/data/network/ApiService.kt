@@ -11,11 +11,11 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("movie/now_playing")
+    @GET("search/movie")
     fun getNowPlayingMovie(
         @Query("api_key") apiKey: String,
-        @Query("page") page: Int,
-        @Query("language") language: String
+        @Query("language") language: String,
+        @Query("query") query: String
     ): Observable<MovieResponse>
 
     @GET("movie/{movie_id}")
@@ -25,11 +25,11 @@ interface ApiService {
         @Query("language") language: String
     ): Observable<MovieDetailResponse>
 
-    @GET("tv/on_the_air")
+    @GET("search/tv")
     fun getNowPlayingTvShow(
         @Query("api_key") apiKey: String,
-        @Query("page") page: Int,
-        @Query("language") language: String
+        @Query("language") language: String,
+        @Query("query") query: String
     ): Observable<TvShowResponse>
 
     @GET("tv/{tv_id}")
@@ -38,4 +38,11 @@ interface ApiService {
         @Query("api_key") apiKey: String,
         @Query("language") language: String
     ): Observable<TvShowDetailResponse>
+
+    @GET("discover/movie")
+    fun getMovieReleasedToday(
+        @Query("api_key") apiKey: String,
+        @Query("primary_release_date.gte") primaryReleaseDateGTE: String,
+        @Query("primary_release_date.lte") primaryReleaseDateLTE: String
+    ): Observable<MovieResponse>
 }

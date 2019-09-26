@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
-    <color name="backgroundRating">#C6979797</color>
-    <color name="mediumGray">#cecece</color>
+    <color name="background_rating">#C6979797</color>
+    <color name="medium_gray">#cecece</color>
     <color name="black">#000000</color>
     <color name="gray_shimmer_basic">#dddddd</color>
     <color name="gray_shimmer_medium">#B3B3B3</color>

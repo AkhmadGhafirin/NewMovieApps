@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cascer.madesubmission2.data.repository.MainRepository
+import com.cascer.madesubmission2.data.response.favorite.FavoriteMovie
+import com.cascer.madesubmission2.data.response.favorite.FavoriteState
+import com.cascer.madesubmission2.data.response.favorite.FavoriteTvShow
 import com.cascer.madesubmission2.data.response.movie.detail.MovieDetailResponse
 import com.cascer.madesubmission2.data.response.tv_show.detail.TvShowDetailResponse
 
@@ -24,15 +27,29 @@ class DetailViewModel(
         detailTvShowLiveData = repository.detailTvShowLiveData
     }
 
-    fun updateFavoriteMovie(favorite: Boolean, id: Int) {
-        repository.updateFavoriteMovie(favorite, id)
+    fun insertFavoriteMovie(item: FavoriteMovie) {
+        repository.insertFavoriteMovie(item)
     }
 
-    fun updateFavoriteTvShow(favorite: Boolean, id: Int) {
-        repository.updateFavoriteTvShow(favorite, id)
+    fun insertFavoriteTvShow(item: FavoriteTvShow) {
+        repository.insertFavoriteTvShow(item)
     }
 
-    fun getFavoriteMovie(id: Int): LiveData<Boolean> = repository.getFavoriteMovie(id)
+    fun insertFavoriteState(item: FavoriteState) {
+        repository.insertFavoriteState(item)
+    }
 
-    fun getFavoriteTvShow(id: Int): LiveData<Boolean> = repository.getFavoriteTvShow(id)
+    fun getFavoriteState(id: Int): LiveData<Boolean> = repository.getFavoriteState(id)
+
+    fun deleteFavoriteState() {
+        repository.deleteFavoriteState()
+    }
+
+    fun deleteFavoriteMovie(id: Int) {
+        repository.deleteFavoriteMovie(id)
+    }
+
+    fun deleteFavoriteTvShow(id: Int) {
+        repository.deleteFavoriteTvShow(id)
+    }
 }

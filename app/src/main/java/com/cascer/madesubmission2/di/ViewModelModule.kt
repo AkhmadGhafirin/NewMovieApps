@@ -9,7 +9,7 @@ import org.koin.dsl.module.module
 
 val viewModelModule = module {
     single { MainRepository(androidApplication(), get(), get(), get()) }
-    viewModel { (language: String) -> MainViewModel(get(), language) }
+    viewModel { MainViewModel(get()) }
     viewModel { (from: String, id: Int, language: String) ->
         DetailViewModel(get(), from, id, language)
     }

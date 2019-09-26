@@ -22,9 +22,6 @@ data class LastEpisodeToAir(
     @field:SerializedName("show_id")
     val showId: Int? = null,
 
-    @field:SerializedName("vote_average")
-    val voteAverage: Int? = null,
-
     @field:SerializedName("name")
     val name: String? = null,
 
@@ -39,4 +36,4 @@ data class LastEpisodeToAir(
 
     @field:SerializedName("vote_count")
     val voteCount: Int? = null
-): Parcelable
+) : Parcelable

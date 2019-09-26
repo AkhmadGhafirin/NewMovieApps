@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FavoriteMovieApp</string>
+    <string name="empty_favorite_message">Your favorite is empty</string>
+    <string name="title_label">TITLE :</string>
+    <string name="genres_label">GENRES :</string>
+    <string name="release_label">RELEASE :</string>
+    <string name="rating_label">RATING :</string>
+    <string name="duration_label">DURATION :</string>
+    <string name="overview_label">OVERVIEW :</string>
+</resources>

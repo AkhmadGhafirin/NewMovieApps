@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Submission 2</string>
+    <string name="app_name">Final Submission</string>
     <string name="language">en-US</string>
     <string name="tv_show_label">Tv Show</string>
     <string name="movies_label">Movies</string>
@@ -15,4 +15,15 @@
     <string name="add_favorite_message">Successfully added to favorites</string>
     <string name="remove_favorite_message">Successfully removed from favorites</string>
     <string name="empty_favorite_message">Your favorite is empty</string>
+    <string name="search_here_message">Search here…</string>
+    <string name="search_movie_first_message">Find the Movie here…</string>
+    <string name="search_tv_show_message">Find the Tv Show here…</string>
+    <string name="daily_reminder_label">Daily Reminder</string>
+    <string name="release_reminder_label">Release Reminder</string>
+    <string name="release_reminder_desc">Reminder showing the movie that released\ntoday</string>
+    <string name="daily_reminder_desc">Reminder for return to app</string>
+    <string name="change_language_desc">Change language setting to Bahasa or English</string>
+    <string name="setting_label">Setting</string>
+    <string name="release_today_message">This movie will release today</string>
+    <string name="movie_banner_label">Movie Banner</string>
 </resources>

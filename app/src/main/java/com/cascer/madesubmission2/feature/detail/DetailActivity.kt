@@ -9,14 +9,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.cascer.madesubmission2.R
+import com.cascer.madesubmission2.data.response.favorite.FavoriteMovie
+import com.cascer.madesubmission2.data.response.favorite.FavoriteState
+import com.cascer.madesubmission2.data.response.favorite.FavoriteTvShow
+import com.cascer.madesubmission2.data.response.movie.MoviesItem
 import com.cascer.madesubmission2.data.response.movie.detail.MovieDetailResponse
+import com.cascer.madesubmission2.data.response.tv_show.TvShowItem
 import com.cascer.madesubmission2.data.response.tv_show.detail.TvShowDetailResponse
 import com.cascer.madesubmission2.utils.GlideApp
 import com.cascer.madesubmission2.utils.KEY_DETAIL_VALUE
 import com.cascer.madesubmission2.utils.KEY_TITLE
 import com.cascer.madesubmission2.utils.PopUpMessage
 import com.cascer.madesubmission2.viewmodel.DetailViewModel
-import com.valdesekamdem.library.mdtoast.MDToast
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail.iv_movie_detail
 import kotlinx.android.synthetic.main.activity_detail.tv_genres
@@ -37,6 +41,8 @@ class DetailActivity : AppCompatActivity() {
     lateinit var movieDetailResponse: MovieDetailResponse
     private var mMenu: Menu? = null
     private var isFavorite: Boolean = false
+    lateinit var favoriteMovieItem: FavoriteMovie
+    lateinit var favoriteTvShowItem: FavoriteTvShow
 
     private val viewModel: DetailViewModel by inject {
         parametersOf(
@@ -48,9 +54,13 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         from = intent.getStringExtra("from") ?: ""
-        id = intent.getIntExtra("id", 0)
-        supportActionBar?.title = "Detail $from"
+
+        getIntentData()
+
+        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setupCollapsingToolbar()
+
         if (savedInstanceState == null) {
             setupViewModel(from)
         } else {
@@ -66,6 +76,78 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupCollapsingToolbar() {
+        collapsing_toolbar.title = "Detail $from"
+        collapsing_toolbar.setCollapsedTitleTextColor(
+            ContextCompat.getColor(this, R.color.white)
+        )
+        collapsing_toolbar.setExpandedTitleColor(
+            ContextCompat.getColor(this, R.color.white)
+        )
+    }
+
+    private fun getIntentData() {
+        val type = intent.getStringExtra("type")
+        if (from == "Movie") {
+            if (type == "favorite") {
+                val data = intent.getParcelableExtra<FavoriteMovie>("data")
+                if (data != null) {
+                    id = data.id ?: 0
+                    favoriteMovieItem = data
+                }
+            } else {
+                val data = intent.getParcelableExtra<MoviesItem>("data")
+                if (data != null) {
+                    id = data.id ?: 0
+                    favoriteMovieItem = FavoriteMovie(
+                        id = data.id,
+                        overview = data.overview,
+                        originalLanguage = data.originalLanguage,
+                        originalTitle = data.originalTitle,
+                        video = data.video,
+                        title = data.title,
+                        genreIds = data.genreIds,
+                        posterPath = data.posterPath,
+                        backdropPath = data.backdropPath,
+                        releaseDate = data.releaseDate,
+                        popularity = data.popularity,
+                        voteAverage = data.voteAverage,
+                        adult = data.adult,
+                        voteCount = data.voteCount
+                    )
+                }
+            }
+        } else {
+            if (type == "favorite") {
+                val data = intent.getParcelableExtra<FavoriteTvShow>("data")
+                if (data != null) {
+                    id = data.id ?: 0
+                    favoriteTvShowItem = data
+                }
+            } else {
+                val data = intent.getParcelableExtra<TvShowItem>("data")
+                if (data != null) {
+                    id = data.id ?: 0
+                    favoriteTvShowItem = FavoriteTvShow(
+                        id = data.id,
+                        overview = data.overview,
+                        originalLanguage = data.originalLanguage,
+                        firstAirDate = data.firstAirDate,
+                        originalName = data.originalName,
+                        originCountry = data.originCountry,
+                        genreIds = data.genreIds,
+                        posterPath = data.posterPath,
+                        backdropPath = data.backdropPath,
+                        name = data.name,
+                        popularity = data.popularity,
+                        voteAverage = data.voteAverage,
+                        voteCount = data.voteCount
+                    )
+                }
+            }
+        }
+    }
+
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putString(KEY_TITLE, from)
         if (from == "Movie") {
@@ -77,24 +159,25 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setupFavorite() {
+        viewModel.getFavoriteState(id).observe(this, Observer {
+            isFavorite = it ?: false
+            favoriteState()
+        })
+    }
+
+    private fun addFavorite() {
         if (from == "Movie") {
-            viewModel.getFavoriteMovie(id).observe(this, Observer {
-                isFavorite = it
-                favoriteState()
-            })
+            viewModel.insertFavoriteMovie(favoriteMovieItem)
         } else {
-            viewModel.getFavoriteTvShow(id).observe(this, Observer {
-                isFavorite = it
-                favoriteState()
-            })
+            viewModel.insertFavoriteTvShow(favoriteTvShowItem)
         }
     }
 
-    private fun addFavorite(favorite: Boolean) {
+    private fun deleteFavorite() {
         if (from == "Movie") {
-            viewModel.updateFavoriteMovie(favorite, id)
+            viewModel.deleteFavoriteMovie(id)
         } else {
-            viewModel.updateFavoriteTvShow(favorite, id)
+            viewModel.deleteFavoriteTvShow(id)
         }
     }
 
@@ -117,10 +200,13 @@ class DetailActivity : AppCompatActivity() {
         if (item.itemId == R.id.add_favorite) {
             if (isFavorite) {
                 PopUpMessage().popUpToast(application, getString(R.string.remove_favorite_message))
-                addFavorite(false)
+                viewModel.deleteFavoriteState()
+                viewModel.insertFavoriteState(FavoriteState(id, false))
+                deleteFavorite()
             } else {
                 PopUpMessage().popUpToast(application, getString(R.string.add_favorite_message))
-                addFavorite(true)
+                viewModel.insertFavoriteState(FavoriteState(id, true))
+                addFavorite()
             }
             setupFavorite()
         }

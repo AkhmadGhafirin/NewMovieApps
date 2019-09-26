@@ -1,4 +1,4 @@
-package com.cascer.madesubmission2.feature.main
+package com.cascer.madesubmission2.feature.main.tv_show
 
 import android.view.LayoutInflater
 import android.view.View

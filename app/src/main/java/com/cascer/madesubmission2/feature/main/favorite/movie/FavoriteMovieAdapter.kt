@@ -1,18 +1,18 @@
-package com.cascer.madesubmission2.feature.main
+package com.cascer.madesubmission2.feature.main.favorite.movie
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cascer.madesubmission2.R
-import com.cascer.madesubmission2.data.response.movie.MoviesItem
+import com.cascer.madesubmission2.data.response.favorite.FavoriteMovie
 import com.cascer.madesubmission2.utils.GlideApp
 import kotlinx.android.synthetic.main.movie.view.*
 
-class MovieAdapter(private val listener: (data: MoviesItem) -> Unit) :
-    RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class FavoriteMovieAdapter(private val listener: (data: FavoriteMovie) -> Unit) :
+    RecyclerView.Adapter<FavoriteMovieAdapter.ViewHolder>() {
 
-    private var dataSet = emptyList<MoviesItem>()
+    private var dataSet = emptyList<FavoriteMovie>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.movie, parent, false)
@@ -26,7 +26,7 @@ class MovieAdapter(private val listener: (data: MoviesItem) -> Unit) :
 
     override fun getItemCount(): Int = dataSet.size
 
-    fun insertList(dataList: List<MoviesItem>) {
+    fun insertList(dataList: List<FavoriteMovie>) {
         dataSet = dataList
         notifyDataSetChanged()
     }
@@ -39,7 +39,7 @@ class MovieAdapter(private val listener: (data: MoviesItem) -> Unit) :
             }
         }
 
-        fun bind(data: MoviesItem) {
+        fun bind(data: FavoriteMovie) {
             itemView.tv_title.text = data.title
             itemView.tv_rating.text = data.voteAverage.toString()
 //            itemView.tv_duration.text = data.duration

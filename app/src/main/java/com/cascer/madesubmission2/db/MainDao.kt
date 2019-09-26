@@ -1,43 +1,80 @@
 package com.cascer.madesubmission2.db
 
+import android.database.Cursor
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import com.cascer.madesubmission2.data.response.movie.MoviesItem
-import com.cascer.madesubmission2.data.response.tv_show.TvShowItem
+import androidx.room.*
+import com.cascer.madesubmission2.data.response.favorite.FavoriteMovie
+import com.cascer.madesubmission2.data.response.favorite.FavoriteState
+import com.cascer.madesubmission2.data.response.favorite.FavoriteTvShow
+import com.cascer.madesubmission2.utils.FAVORITE_MOVIE_TABLE_NAME
+import com.cascer.madesubmission2.utils.FAVORITE_TV_SHOW_TABLE_NAME
+
 
 @Dao
 interface MainDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMovieList(list: List<MoviesItem>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertFavoriteMovie(item: FavoriteMovie)
 
-    @Query("SELECT * FROM movies")
-    fun getMovieList(): LiveData<List<MoviesItem>>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertFavoriteTvShow(item: FavoriteTvShow)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertTvShowList(list: List<TvShowItem>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertFavoriteState(item: FavoriteState)
 
-    @Query("SELECT * FROM tv_show")
-    fun getTvShowList(): LiveData<List<TvShowItem>>
+    @Query("SELECT * FROM favorite_movie")
+    fun getFavoriteMovieLiveData(): LiveData<List<FavoriteMovie>>
 
-    @Query("SELECT * FROM movies WHERE isFavorite == 1")
-    fun getFavoriteMovieList(): LiveData<List<MoviesItem>>
+    @Query("SELECT * FROM favorite_movie")
+    fun getFavoriteMovieList(): List<FavoriteMovie>
 
-    @Query("SELECT * FROM tv_show WHERE isFavorite == 1")
-    fun getFavoriteTvShowList(): LiveData<List<TvShowItem>>
+    @Query("SELECT * FROM favorite_tv_show")
+    fun getFavoriteTvShowLiveData(): LiveData<List<FavoriteTvShow>>
 
-    @Query("SELECT isFavorite FROM movies WHERE id = :id LIMIT 1")
-    fun getFavoriteMovie(id: Int): LiveData<Boolean>
+    @Query("SELECT is_favorite FROM favorite_state WHERE id = :id LIMIT 1")
+    fun getFavoriteState(id: Int): LiveData<Boolean>
 
-    @Query("SELECT isFavorite FROM tv_show WHERE isFavorite = :id LIMIT 1")
-    fun getFavoriteTvShow(id: Int): LiveData<Boolean>
+    @Query("DELETE FROM favorite_state WHERE is_favorite == 0")
+    fun deleteFavoriteState()
 
-    @Query("UPDATE movies SET isFavorite = :favorite WHERE id = :id")
-    fun updateFavoriteMovie(favorite: Boolean, id: Int)
+    @Query("DELETE FROM favorite_movie WHERE id == :id")
+    fun deleteFavoriteMovie(id: Int)
 
-    @Query("UPDATE tv_show SET isFavorite = :favorite WHERE id = :id")
-    fun updateFavoriteTvShow(favorite: Boolean, id: Int)
+    @Query("DELETE FROM favorite_tv_show WHERE id == :id")
+    fun deleteFavoriteTvShow(id: Int)
+
+    /**
+     * For Content Provider
+     */
+
+    @Insert
+    fun insertFavoriteMovieProvider(movie: FavoriteMovie): Long
+
+    @Query("SELECT * FROM $FAVORITE_MOVIE_TABLE_NAME")
+    fun selectAllFavoriteMovieProvider(): Cursor
+
+    @Query("SELECT * FROM $FAVORITE_MOVIE_TABLE_NAME WHERE id = :id")
+    fun selectFavoriteMovieProviderById(id: Long): Cursor
+
+    @Query("DELETE FROM $FAVORITE_MOVIE_TABLE_NAME WHERE id = :id")
+    fun deleteFavoriteMovieProviderById(id: Long): Int
+
+    @Update
+    fun updateFavoriteMovieProvider(movie: FavoriteMovie): Int
+
+
+    @Insert
+    fun insertFavoriteTvShowProvider(tvShow: FavoriteTvShow): Long
+
+    @Query("SELECT * FROM $FAVORITE_TV_SHOW_TABLE_NAME")
+    fun selectAllFavoriteTvShowProvider(): Cursor
+
+    @Query("SELECT * FROM $FAVORITE_TV_SHOW_TABLE_NAME WHERE id = :id")
+    fun selectFavoriteTvShowProvider(id: Long): Cursor
+
+    @Query("DELETE FROM $FAVORITE_TV_SHOW_TABLE_NAME WHERE id = :id")
+    fun deleteFavoriteTvShowProviderById(id: Long): Int
+
+    @Update
+    fun updateFavoriteTvShowProvider(tvShow: FavoriteTvShow): Int
 }

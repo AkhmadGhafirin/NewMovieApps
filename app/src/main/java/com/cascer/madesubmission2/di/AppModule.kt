@@ -2,6 +2,7 @@ package com.cascer.madesubmission2.di
 
 import com.cascer.madesubmission2.db.MainDB
 import com.cascer.madesubmission2.db.MainDao
+import com.cascer.madesubmission2.widget.StackWidgetRemoteViewsFactory
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module.module
 import java.util.concurrent.Executor
@@ -11,6 +12,7 @@ val appModule = module {
     single { MainDB.getDatabase(androidContext()) }
     single { provideMovieDao(get()) }
     single { provideExecutor() }
+    single { StackWidgetRemoteViewsFactory(get(), androidContext()) }
 }
 
 fun provideMovieDao(mainDB: MainDB): MainDao = mainDB.dao()
