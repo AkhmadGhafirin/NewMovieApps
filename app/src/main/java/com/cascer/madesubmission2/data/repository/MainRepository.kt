@@ -99,6 +99,7 @@ class MainRepository(
                 }
 
                 override fun onError(e: ErrorData) {
+                    e.throwable
                     detailMovieLiveData.postValue(null)
                     Log.d("ERROR_GET_DETAIL_MOVIE", e.message)
                     PopUpMessage().popUpToast(context, e.message, type = MDToast.TYPE_ERROR)
